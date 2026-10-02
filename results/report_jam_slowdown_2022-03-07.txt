@@ -1,0 +1,150 @@
+ADLENS INVESTIGATION
+====================
+
+DATA SOURCE
+  Real dataset: Food-delivery orders + injected test anomaly
+  food_delivery_analytics.adlens_orders_eval: copy of the real orders with ONE controlled synthetic
+  anomaly injected for evaluation.
+  Adaptation: Not advertising data. No impressions, clicks or spend exist, so CTR/CPC/ROAS are NOT
+  computed. AdLens treats delivery performance as the KPI under investigation: the same 'why did
+  this metric move?' workflow an ad analyst runs on campaign data.
+
+REAL FIELDS USED
+  city_type (dimension)
+  weather (dimension)
+  traffic_density (dimension)
+  vehicle_type (dimension)
+  vehicle_condition (dimension)
+  order_type (dimension)
+  festival (dimension)
+  multiple_deliveries (dimension)
+  avg_delivery_time (metric: mean delivery time in minutes)
+  avg_courier_rating (metric: mean courier rating)
+  orders (metric: order count)
+  order_id
+  delivery_person_id
+  order_datetime
+  pickup_datetime
+
+DERIVED FIELDS
+  distance_band (dimension)
+  hour_band (dimension)
+  courier_rating_band (dimension)
+  courier_age_band (dimension)
+  on_time_rate (metric: share of orders delivered within 30 min (SLA defined by the earlier cleaning
+  project))
+  avg_distance_km (metric: mean restaurant-to-customer haversine distance)
+  prep_time_min
+  distance_km (haversine of real coordinates)
+  on_time (time_taken_min <= 30)
+
+SYNTHETIC FIELDS
+  (none)
+
+OBSERVED ANOMALY
+  avg_delivery_time (mean delivery time in minutes): 23.0413 -> 24.7344 (delta 1.6931, +7.3%, worse)
+  baseline 2022-03-05..2022-03-05 (n=1113), current 2022-03-07..2022-03-07 (n=1103); entity filter:
+  none
+  permutation test p=0.001; robust z vs last 14 periods: -0.37; flagged as anomaly: True (|relative
+  change| >= 5% and p < 0.01)
+
+INVESTIGATION PLAN
+  Investigate the change in avg_delivery_time metric and determine the root cause
+  1. get_metric_summary: Get a summary of the avg_delivery_time metric across all dimensions
+  2. scan_dimensions: Identify which dimensions have changed significantly in the current period
+  compared to the baseline
+  3. compare_periods: Compare the avg_delivery_time metric between the baseline and current periods
+  for the identified dimensions
+  4. get_historical_metrics: Retrieve historical data for the avg_delivery_time metric to understand
+  the trend over time
+  5. run_statistical_test: Run a permutation test to determine if the observed change in
+  avg_delivery_time is statistically significant
+  6. get_entity_metrics: Retrieve detailed metrics for the entity (city_type) that showed the most
+  significant change in avg_delivery_time
+
+HYPOTHESES
+
+H3  The increase in avg_delivery_time is driven by the `1` segment in `multiple_deliveries`. This segment has a higher rate effect, indicating that the delivery time for orders in this segment has increased more than the overall average. This could be due to a change in the delivery process for this segment, such as a change in the delivery route or a change in the delivery team.
+    type RATE_CHANGE | multiple_deliveries=1 | Status: SUPPORTED | confidence 0.766 | explained 0.766 | p 0.0005
+    + multiple_deliveries=1: 23.9188 -> 26.0723 (rate effect 1.2867, 77% of the change)
+    + permutation test inside segment: effect 2.1535, p=0.0005
+
+H1  The increase in avg_delivery_time is driven by a broad shift in the delivery process, where the overall system efficiency has decreased. This could be due to a general issue affecting all segments, such as a software bug or a change in the delivery network infrastructure.
+    type BROAD_SHIFT | OTHER=* | Status: INCONCLUSIVE | confidence 0.0 | explained None | p None
+    - unknown dimension 'OTHER' for orders_eval. Available: ['city_type', 'weather',
+    'traffic_density', 'vehicle_type', 'vehicle_condition', 'order_type', 'festival',
+    'multiple_deliveries', 'distance_band', 'hour_band', 'courier_rating_band', 'courier_age_band']
+
+H2  The increase in avg_delivery_time is primarily due to a change in the composition of the `Urban` segment in `city_type`. The proportion of deliveries in this segment has increased, leading to a higher average delivery time. This could be due to a surge in orders from this segment or a change in the delivery process for this segment.
+    type MIX_SHIFT | city_type=Urban | Status: REJECTED | confidence 0.0 | explained -0.055 | p 0.102912
+    - composition of city_type explains -6% of the change (mix effect -0.0938)
+    - share of Urban: 0.2426 -> 0.2729 (z-test p=0.102912)
+
+H4  The increase in avg_delivery_time is due to a specific issue affecting the `Metropolitian` segment in `city_type`. This segment has a significant mix effect, indicating that the proportion of deliveries in this segment has increased, leading to a higher average delivery time. This could be due to a change in the delivery network or a change in the delivery process for this segment.
+    type MIX_SHIFT | city_type=Metropolitian | Status: REJECTED | confidence 0.0 | explained -0.055 | p 0.11207
+    - composition of city_type explains -6% of the change (mix effect -0.0938)
+    - share of Metropolitian: 0.7269 -> 0.6963 (z-test p=0.11207)
+
+H5  The increase in avg_delivery_time is due to a specific issue affecting the `3` segment in `multiple_deliveries`. This segment has a significant rate effect, indicating that the delivery time for orders in this segment has increased more than the overall average. This could be due to a change in the delivery process for this segment, such as a change in the delivery route or a change in the delivery team.
+    type RATE_CHANGE | multiple_deliveries=3 | Status: INCONCLUSIVE | confidence 0.0 | explained -0.001 | p None
+    - multiple_deliveries=3: 48.0 -> 47.5 (rate effect -0.0027, -0% of the change)
+    - permutation test inside segment: effect None, p=None
+
+EVIDENCE
+  The metric `avg_delivery_time` shows a significant increase in both `city_type` and
+  `multiple_deliveries`. The top contributing segment in `city_type` is the `Urban` segment with a
+  contribution of 1.0049, and in `multiple_deliveries`, the top contributing segment is `1` with a
+  contribution of 1.4043.  For `city_type`, the `Urban` segment has a mix effect of 0.6299 and a
+  rate effect of 0.3334. The `Metropolitian` segment has a mix effect of -0.7296 and a rate effect
+  of 1.4681. The `Semi-Urban` segment has a mix effect of 0.0004 and a rate effect of 0.0081. The
+  `unknown` segment has a mix effect of 0.0055 and a rate effect of -0.0027.  For
+  `multiple_deliveries`, the `1` segment has a mix effect of 0.1079 and a rate effect of 1.2867. The
+  `0` segment has a mix effect of 0.27 and a rate effect of 0.4573. The `3` segment has a mix effect
+  of -0.1717 and a rate effect of -0.0027. The `unknown` segment has a mix effect of -0.2007 and a
+  rate effect of 0.0475. The `2` segment has a mix effect of -0.1722 and a rate effect of 0.0779.
+  Given these results, the increase in `avg_delivery_time` is primarily driven by the `1` segment in
+  `multiple_deliveries` and the `Urban` segment in `city_type`. The `1` segment in
+  `multiple_deliveries` has a significant rate effect, while the `Urban` segment in `city_type` has
+  a significant mix effect.   The `Urban` segment in `city_type` has a mix effect of 0.6299, which
+  means that the proportion of deliveries in the `Urban` segment has increased, contributing to the
+  overall increase in `avg_delivery_time`. The `1` segment in `multiple_deliveries` has a rate
+  effect of 1.2867, indicating that the delivery time for orders in the `1` segment has increased
+  more than the overall average.  In summary, the increase in `avg_delivery_time` is driven by the
+  `1` segment in `multiple_deliveries` and the `Urban` segment in `city_type`. The `1` segment in
+  `multiple_deliveries` is the primary contributor to the increase, with a significant rate effect,
+  while the `Urban` segment in `city_type` is the primary contributor in terms of mix effect,
+  indicating an increase in deliveries in this segment.
+  (3 evidence items from tool calls: E1 scan_dimensions, E2 compare_periods, E3 compare_periods)
+
+COUNTERFACTUAL ANALYSIS
+  H3: multiple_deliveries=1 restored to 23.9188: observed 24.7344 -> 23.438 (baseline 23.0413; share
+  of change accounted for 0.766)
+  joint: Ridge on one-hot multiple_deliveries: observed 24.7344 -> 22.8833 (baseline 23.0413; share
+  of change accounted for -0.093)
+
+RECOMMENDATION
+  The increase in the average delivery time is driven by the `1` segment in the
+  `multiple_deliveries` dimension, as supported by the validated hypothesis H3. This segment has a
+  higher rate effect, indicating that the delivery time for orders in this segment has increased
+  more than the overall average. The counterfactual analysis suggests that if the delivery time for
+  the `1` segment were set to the baseline value of 23.9188, the observed increase in delivery time
+  would be reduced by 1.2964 minutes, accounting for 76.6% of the total change. This supports the
+  hypothesis that the delivery process for this segment has changed, possibly due to a change in the
+  delivery route or a change in the delivery team.
+  - [H3] Investigate the delivery process for the `1` segment | expected: 1.2964 minutes reduction
+  in average delivery time
+  - [H3] Conduct a detailed review of the delivery routes for the `1` segment | expected: 1.2964
+  minutes reduction in average delivery time
+  - [H3] Review the delivery team composition for the `1` segment | expected: 1.2964 minutes
+  reduction in average delivery time
+  caveat: The counterfactual analysis suggests that if the delivery time for the `1` segment were
+  set to the baseline value of 23.9188, the observed increase in delivery time would be reduced by
+  1.2964 minutes, accounting for 76.6% of the total change. However, this does not guarantee that
+  the delivery time will be reduced to the baseline value. Other factors may still influence the
+  delivery time.
+
+AGENT TRACE
+  Tool calls: 31
+  Failed tool calls: 0
+  Investigation steps: 8 (monitor -> planner -> evidence -> hypotheses -> validation -> counterfactual -> recommendation -> report)
+  LLM: {'model': 'qwen2.5-3b-16k', 'llm_calls': 5, 'input_tokens': 15279, 'output_tokens': 2676, 'cost_usd': 0.0, 'llm_seconds': 928.2}

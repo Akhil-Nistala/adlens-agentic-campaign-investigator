@@ -44,12 +44,16 @@ def _run_tools(calls, state, evidence, trace, allowed=True):
 def node(state):
     usage, trace = state["usage"], state["trace"]
     evidence = list(state.get("evidence") or [])
+    # deterministic triage: every investigation starts from the all-dimension screen (E1), so even a small model
+    # drills into dimensions the data points at instead of guessing
+    triage = _run_tools([("triage", "scan_dimensions", {"metric": state["metric"]})], state, evidence, trace)[0]["content"]
     kickoff = (
         f"Metric: {state['metric']} on dataset '{state['dataset']}'. Baseline {state['base_start']}..{state['base_end']}, "
         f"current {state['cur_start']}..{state['cur_end']}. Entity filter: {state.get('entity_filter') or 'none'}.\n"
         f"Observed change: {json.dumps(state['observation'], default=str)[:1500]}\n"
         f"Plan: {json.dumps(state['plan'])}\nAvailable dimensions: {list(state['dimensions']['dimensions'])}\n"
-        f"You have at most {config.MAX_EVIDENCE_STEPS} rounds of tool calls."
+        f"Triage already run (all dimensions screened): {triage}\n"
+        f"Drill into the top-contributing dimensions from E1. You have at most {config.MAX_EVIDENCE_STEPS} more rounds of tool calls."
     )
     messages = [{"role": "user", "content": kickoff}]
     summary, rounds = "", 0

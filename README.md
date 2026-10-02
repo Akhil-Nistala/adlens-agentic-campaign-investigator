@@ -91,7 +91,19 @@ So the composition shift explains 100% of the change, and per-segment explanatio
 | Weakest scenario | low-rated couriers (smallest injection, about 6% change): flagged on 12 of 17 days |
 
 ### Investigation quality, AdLens vs one-prompt baseline
-Running on the local model (each LLM call takes about 40 s on a laptop CPU); results will be added here. Scoring is defined in `evaluation/evaluate.py`: correct root cause (type, dimension and segment), whether the true cause was supported, evidence quality, counterfactual error, tool calls, failed tool calls, steps, tokens and time.
+Scoring (`evaluation/evaluate.py`): correct root cause (type, dimension and segment), whether the true cause was supported, share of wrong hypotheses not falsely supported, evidence quality, counterfactual error, tool calls, failed tool calls, steps, tokens and time. Runs are logged to the `adlens_runs` MySQL table and are resumable.
+
+**Status: pilot only.** On the local `qwen2.5:3b` (CPU), one investigation takes about 15 minutes, so only the first scenario has been run; the 4-scenario run was stopped for compute. Pilot result, injected *traffic-jam slowdown*:
+
+| | AdLens (local 3B) | One-prompt baseline |
+|---|---|---|
+| Correct root cause | No: named *single-delivery orders* (a correlated segment: the injected jam orders are mostly single deliveries) | No: named a *morning-order* mix shift |
+| How the conclusion was reached | SUPPORTED by the validator: explains 77% of the change, p = 0.0005 | asserted by the LLM, no test |
+| Wrong hypotheses not falsely supported | 4 of 5 (REJECTED / INCONCLUSIVE) | n/a |
+| Tool calls / failed | 31 / 0 | 25 queries |
+| LLM calls / time / cost | 5 / 15.6 min / $0 | 1 / 44 s / $0 |
+
+What this shows: the statistics layer behaves as designed (no unsupported claim reaches the report), but a 3B model proposes too narrow a hypothesis set to name the injected dimension, even though every investigation starts with a deterministic all-dimension screen (`scan_dimensions`, evidence E1). The full comparison should be run with a larger model (`ADLENS_MODEL=gpt-5.4-mini` or a bigger local model).
 
 
 ## Limitations
