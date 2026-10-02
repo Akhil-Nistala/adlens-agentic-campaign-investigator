@@ -1,0 +1,1428 @@
+{
+ "trials": 153,
+ "tp": 128,
+ "fp": 0,
+ "fn": 8,
+ "tn": 17,
+ "precision": 1.0,
+ "recall": 0.9411764705882353,
+ "false_positive_rate": 0.0,
+ "by_scenario": {
+  "jam_slowdown": {
+   "n": 17,
+   "flagged": 16
+  },
+  "fog_slowdown": {
+   "n": 17,
+   "flagged": 16
+  },
+  "urban_slowdown": {
+   "n": 17,
+   "flagged": 16
+  },
+  "bad_vehicle_slowdown": {
+   "n": 17,
+   "flagged": 17
+  },
+  "low_rated_couriers": {
+   "n": 17,
+   "flagged": 12
+  },
+  "festival_surge": {
+   "n": 17,
+   "flagged": 17
+  },
+  "batched_orders": {
+   "n": 17,
+   "flagged": 17
+  },
+  "jam_share_up": {
+   "n": 17,
+   "flagged": 17
+  },
+  "none": {
+   "n": 17,
+   "flagged": 0
+  }
+ },
+ "rule": "|rel change| >= 5% and p < 0.01",
+ "rows": [
+  {
+   "day": "2022-03-03",
+   "scenario": "jam_slowdown",
+   "injected": true,
+   "flagged": true,
+   "delta": 1.71,
+   "rel": 0.0736,
+   "p": 0.001
+  },
+  {
+   "day": "2022-03-03",
+   "scenario": "fog_slowdown",
+   "injected": true,
+   "flagged": true,
+   "delta": 1.4687,
+   "rel": 0.0632,
+   "p": 0.001
+  },
+  {
+   "day": "2022-03-03",
+   "scenario": "urban_slowdown",
+   "injected": true,
+   "flagged": true,
+   "delta": 1.6554,
+   "rel": 0.0713,
+   "p": 0.001
+  },
+  {
+   "day": "2022-03-03",
+   "scenario": "bad_vehicle_slowdown",
+   "injected": true,
+   "flagged": true,
+   "delta": 2.6197,
+   "rel": 0.1128,
+   "p": 0.001
+  },
+  {
+   "day": "2022-03-03",
+   "scenario": "low_rated_couriers",
+   "injected": true,
+   "flagged": false,
+   "delta": 1.1389,
+   "rel": 0.049,
+   "p": 0.00599
+  },
+  {
+   "day": "2022-03-03",
+   "scenario": "festival_surge",
+   "injected": true,
+   "flagged": true,
+   "delta": 1.9265,
+   "rel": 0.0829,
+   "p": 0.001
+  },
+  {
+   "day": "2022-03-03",
+   "scenario": "batched_orders",
+   "injected": true,
+   "flagged": true,
+   "delta": 3.0636,
+   "rel": 0.1319,
+   "p": 0.001
+  },
+  {
+   "day": "2022-03-03",
+   "scenario": "jam_share_up",
+   "injected": true,
+   "flagged": true,
+   "delta": 1.6496,
+   "rel": 0.071,
+   "p": 0.001
+  },
+  {
+   "day": "2022-03-03",
+   "scenario": "none",
+   "injected": false,
+   "flagged": false,
+   "delta": -0.1399,
+   "rel": -0.006,
+   "p": 0.68731
+  },
+  {
+   "day": "2022-03-05",
+   "scenario": "jam_slowdown",
+   "injected": true,
+   "flagged": true,
+   "delta": 1.8801,
+   "rel": 0.0814,
+   "p": 0.001
+  },
+  {
+   "day": "2022-03-05",
+   "scenario": "fog_slowdown",
+   "injected": true,
+   "flagged": true,
+   "delta": 1.6536,
+   "rel": 0.0716,
+   "p": 0.001
+  },
+  {
+   "day": "2022-03-05",
+   "scenario": "urban_slowdown",
+   "injected": true,
+   "flagged": true,
+   "delta": 1.6536,
+   "rel": 0.0716,
+   "p": 0.001
+  },
+  {
+   "day": "2022-03-05",
+   "scenario": "bad_vehicle_slowdown",
+   "injected": true,
+   "flagged": true,
+   "delta": 2.615,
+   "rel": 0.1133,
+   "p": 0.001
+  },
+  {
+   "day": "2022-03-05",
+   "scenario": "low_rated_couriers",
+   "injected": true,
+   "flagged": true,
+   "delta": 1.2493,
+   "rel": 0.0541,
+   "p": 0.001
+  },
+  {
+   "day": "2022-03-05",
+   "scenario": "festival_surge",
+   "injected": true,
+   "flagged": true,
+   "delta": 1.9585,
+   "rel": 0.0848,
+   "p": 0.001
+  },
+  {
+   "day": "2022-03-05",
+   "scenario": "batched_orders",
+   "injected": true,
+   "flagged": true,
+   "delta": 3.1618,
+   "rel": 0.137,
+   "p": 0.001
+  },
+  {
+   "day": "2022-03-05",
+   "scenario": "jam_share_up",
+   "injected": true,
+   "flagged": true,
+   "delta": 1.8617,
+   "rel": 0.0806,
+   "p": 0.001
+  },
+  {
+   "day": "2022-03-05",
+   "scenario": "none",
+   "injected": false,
+   "flagged": false,
+   "delta": -0.0445,
+   "rel": -0.0019,
+   "p": 0.9021
+  },
+  {
+   "day": "2022-03-07",
+   "scenario": "jam_slowdown",
+   "injected": true,
+   "flagged": true,
+   "delta": 1.6931,
+   "rel": 0.0735,
+   "p": 0.001
+  },
+  {
+   "day": "2022-03-07",
+   "scenario": "fog_slowdown",
+   "injected": true,
+   "flagged": true,
+   "delta": 1.7837,
+   "rel": 0.0774,
+   "p": 0.001
+  },
+  {
+   "day": "2022-03-07",
+   "scenario": "urban_slowdown",
+   "injected": true,
+   "flagged": true,
+   "delta": 1.8898,
+   "rel": 0.082,
+   "p": 0.001
+  },
+  {
+   "day": "2022-03-07",
+   "scenario": "bad_vehicle_slowdown",
+   "injected": true,
+   "flagged": true,
+   "delta": 2.7067,
+   "rel": 0.1175,
+   "p": 0.001
+  },
+  {
+   "day": "2022-03-07",
+   "scenario": "low_rated_couriers",
+   "injected": true,
+   "flagged": true,
+   "delta": 1.2688,
+   "rel": 0.0551,
+   "p": 0.001
+  },
+  {
+   "day": "2022-03-07",
+   "scenario": "festival_surge",
+   "injected": true,
+   "flagged": true,
+   "delta": 2.0684,
+   "rel": 0.0898,
+   "p": 0.001
+  },
+  {
+   "day": "2022-03-07",
+   "scenario": "batched_orders",
+   "injected": true,
+   "flagged": true,
+   "delta": 3.2441,
+   "rel": 0.1408,
+   "p": 0.001
+  },
+  {
+   "day": "2022-03-07",
+   "scenario": "jam_share_up",
+   "injected": true,
+   "flagged": true,
+   "delta": 1.8066,
+   "rel": 0.0784,
+   "p": 0.001
+  },
+  {
+   "day": "2022-03-07",
+   "scenario": "none",
+   "injected": false,
+   "flagged": false,
+   "delta": -0.0204,
+   "rel": -0.0009,
+   "p": 0.94605
+  },
+  {
+   "day": "2022-03-09",
+   "scenario": "jam_slowdown",
+   "injected": true,
+   "flagged": true,
+   "delta": 2.5063,
+   "rel": 0.1089,
+   "p": 0.001
+  },
+  {
+   "day": "2022-03-09",
+   "scenario": "fog_slowdown",
+   "injected": true,
+   "flagged": true,
+   "delta": 2.0915,
+   "rel": 0.0909,
+   "p": 0.001
+  },
+  {
+   "day": "2022-03-09",
+   "scenario": "urban_slowdown",
+   "injected": true,
+   "flagged": true,
+   "delta": 2.1584,
+   "rel": 0.0938,
+   "p": 0.001
+  },
+  {
+   "day": "2022-03-09",
+   "scenario": "bad_vehicle_slowdown",
+   "injected": true,
+   "flagged": true,
+   "delta": 3.0335,
+   "rel": 0.1318,
+   "p": 0.001
+  },
+  {
+   "day": "2022-03-09",
+   "scenario": "low_rated_couriers",
+   "injected": true,
+   "flagged": true,
+   "delta": 1.6633,
+   "rel": 0.0723,
+   "p": 0.001
+  },
+  {
+   "day": "2022-03-09",
+   "scenario": "festival_surge",
+   "injected": true,
+   "flagged": true,
+   "delta": 2.3635,
+   "rel": 0.1027,
+   "p": 0.001
+  },
+  {
+   "day": "2022-03-09",
+   "scenario": "batched_orders",
+   "injected": true,
+   "flagged": true,
+   "delta": 3.5454,
+   "rel": 0.154,
+   "p": 0.001
+  },
+  {
+   "day": "2022-03-09",
+   "scenario": "jam_share_up",
+   "injected": true,
+   "flagged": true,
+   "delta": 2.2834,
+   "rel": 0.0992,
+   "p": 0.001
+  },
+  {
+   "day": "2022-03-09",
+   "scenario": "none",
+   "injected": false,
+   "flagged": false,
+   "delta": 0.3787,
+   "rel": 0.0165,
+   "p": 0.24276
+  },
+  {
+   "day": "2022-03-11",
+   "scenario": "jam_slowdown",
+   "injected": true,
+   "flagged": true,
+   "delta": 1.9058,
+   "rel": 0.0814,
+   "p": 0.001
+  },
+  {
+   "day": "2022-03-11",
+   "scenario": "fog_slowdown",
+   "injected": true,
+   "flagged": true,
+   "delta": 1.3999,
+   "rel": 0.0598,
+   "p": 0.001
+  },
+  {
+   "day": "2022-03-11",
+   "scenario": "urban_slowdown",
+   "injected": true,
+   "flagged": true,
+   "delta": 1.6123,
+   "rel": 0.0689,
+   "p": 0.001
+  },
+  {
+   "day": "2022-03-11",
+   "scenario": "bad_vehicle_slowdown",
+   "injected": true,
+   "flagged": true,
+   "delta": 2.6815,
+   "rel": 0.1146,
+   "p": 0.001
+  },
+  {
+   "day": "2022-03-11",
+   "scenario": "low_rated_couriers",
+   "injected": true,
+   "flagged": false,
+   "delta": 1.1182,
+   "rel": 0.0478,
+   "p": 0.002
+  },
+  {
+   "day": "2022-03-11",
+   "scenario": "festival_surge",
+   "injected": true,
+   "flagged": true,
+   "delta": 1.8949,
+   "rel": 0.081,
+   "p": 0.001
+  },
+  {
+   "day": "2022-03-11",
+   "scenario": "batched_orders",
+   "injected": true,
+   "flagged": true,
+   "delta": 3.1258,
+   "rel": 0.1336,
+   "p": 0.001
+  },
+  {
+   "day": "2022-03-11",
+   "scenario": "jam_share_up",
+   "injected": true,
+   "flagged": true,
+   "delta": 1.6961,
+   "rel": 0.0725,
+   "p": 0.001
+  },
+  {
+   "day": "2022-03-11",
+   "scenario": "none",
+   "injected": false,
+   "flagged": false,
+   "delta": -0.1042,
+   "rel": -0.0045,
+   "p": 0.73526
+  },
+  {
+   "day": "2022-03-13",
+   "scenario": "jam_slowdown",
+   "injected": true,
+   "flagged": true,
+   "delta": 1.9885,
+   "rel": 0.0854,
+   "p": 0.001
+  },
+  {
+   "day": "2022-03-13",
+   "scenario": "fog_slowdown",
+   "injected": true,
+   "flagged": true,
+   "delta": 1.8084,
+   "rel": 0.0776,
+   "p": 0.001
+  },
+  {
+   "day": "2022-03-13",
+   "scenario": "urban_slowdown",
+   "injected": true,
+   "flagged": true,
+   "delta": 1.8546,
+   "rel": 0.0796,
+   "p": 0.001
+  },
+  {
+   "day": "2022-03-13",
+   "scenario": "bad_vehicle_slowdown",
+   "injected": true,
+   "flagged": true,
+   "delta": 2.678,
+   "rel": 0.115,
+   "p": 0.001
+  },
+  {
+   "day": "2022-03-13",
+   "scenario": "low_rated_couriers",
+   "injected": true,
+   "flagged": true,
+   "delta": 1.3257,
+   "rel": 0.0569,
+   "p": 0.002
+  },
+  {
+   "day": "2022-03-13",
+   "scenario": "festival_surge",
+   "injected": true,
+   "flagged": true,
+   "delta": 1.982,
+   "rel": 0.0851,
+   "p": 0.001
+  },
+  {
+   "day": "2022-03-13",
+   "scenario": "batched_orders",
+   "injected": true,
+   "flagged": true,
+   "delta": 3.1841,
+   "rel": 0.1367,
+   "p": 0.001
+  },
+  {
+   "day": "2022-03-13",
+   "scenario": "jam_share_up",
+   "injected": true,
+   "flagged": true,
+   "delta": 1.7705,
+   "rel": 0.076,
+   "p": 0.001
+  },
+  {
+   "day": "2022-03-13",
+   "scenario": "none",
+   "injected": false,
+   "flagged": false,
+   "delta": 0.016,
+   "rel": 0.0007,
+   "p": 0.96004
+  },
+  {
+   "day": "2022-03-15",
+   "scenario": "jam_slowdown",
+   "injected": true,
+   "flagged": true,
+   "delta": 1.9165,
+   "rel": 0.0822,
+   "p": 0.001
+  },
+  {
+   "day": "2022-03-15",
+   "scenario": "fog_slowdown",
+   "injected": true,
+   "flagged": true,
+   "delta": 1.5087,
+   "rel": 0.0647,
+   "p": 0.002
+  },
+  {
+   "day": "2022-03-15",
+   "scenario": "urban_slowdown",
+   "injected": true,
+   "flagged": true,
+   "delta": 1.8467,
+   "rel": 0.0792,
+   "p": 0.001
+  },
+  {
+   "day": "2022-03-15",
+   "scenario": "bad_vehicle_slowdown",
+   "injected": true,
+   "flagged": true,
+   "delta": 2.7524,
+   "rel": 0.1181,
+   "p": 0.001
+  },
+  {
+   "day": "2022-03-15",
+   "scenario": "low_rated_couriers",
+   "injected": true,
+   "flagged": true,
+   "delta": 1.3899,
+   "rel": 0.0596,
+   "p": 0.001
+  },
+  {
+   "day": "2022-03-15",
+   "scenario": "festival_surge",
+   "injected": true,
+   "flagged": true,
+   "delta": 1.9791,
+   "rel": 0.0849,
+   "p": 0.001
+  },
+  {
+   "day": "2022-03-15",
+   "scenario": "batched_orders",
+   "injected": true,
+   "flagged": true,
+   "delta": 3.1135,
+   "rel": 0.1336,
+   "p": 0.001
+  },
+  {
+   "day": "2022-03-15",
+   "scenario": "jam_share_up",
+   "injected": true,
+   "flagged": true,
+   "delta": 1.775,
+   "rel": 0.0761,
+   "p": 0.001
+  },
+  {
+   "day": "2022-03-15",
+   "scenario": "none",
+   "injected": false,
+   "flagged": false,
+   "delta": 0.0065,
+   "rel": 0.0003,
+   "p": 0.98801
+  },
+  {
+   "day": "2022-03-17",
+   "scenario": "jam_slowdown",
+   "injected": true,
+   "flagged": true,
+   "delta": 1.7134,
+   "rel": 0.0735,
+   "p": 0.001
+  },
+  {
+   "day": "2022-03-17",
+   "scenario": "fog_slowdown",
+   "injected": true,
+   "flagged": true,
+   "delta": 1.6692,
+   "rel": 0.0716,
+   "p": 0.001
+  },
+  {
+   "day": "2022-03-17",
+   "scenario": "urban_slowdown",
+   "injected": true,
+   "flagged": true,
+   "delta": 1.6397,
+   "rel": 0.0703,
+   "p": 0.001
+  },
+  {
+   "day": "2022-03-17",
+   "scenario": "bad_vehicle_slowdown",
+   "injected": true,
+   "flagged": true,
+   "delta": 2.6074,
+   "rel": 0.1118,
+   "p": 0.001
+  },
+  {
+   "day": "2022-03-17",
+   "scenario": "low_rated_couriers",
+   "injected": true,
+   "flagged": false,
+   "delta": 1.0996,
+   "rel": 0.0472,
+   "p": 0.00699
+  },
+  {
+   "day": "2022-03-17",
+   "scenario": "festival_surge",
+   "injected": true,
+   "flagged": true,
+   "delta": 1.8981,
+   "rel": 0.0814,
+   "p": 0.001
+  },
+  {
+   "day": "2022-03-17",
+   "scenario": "batched_orders",
+   "injected": true,
+   "flagged": true,
+   "delta": 3.1669,
+   "rel": 0.1358,
+   "p": 0.001
+  },
+  {
+   "day": "2022-03-17",
+   "scenario": "jam_share_up",
+   "injected": true,
+   "flagged": true,
+   "delta": 1.639,
+   "rel": 0.0703,
+   "p": 0.001
+  },
+  {
+   "day": "2022-03-17",
+   "scenario": "none",
+   "injected": false,
+   "flagged": false,
+   "delta": -0.128,
+   "rel": -0.0055,
+   "p": 0.67632
+  },
+  {
+   "day": "2022-03-19",
+   "scenario": "jam_slowdown",
+   "injected": true,
+   "flagged": true,
+   "delta": 1.8525,
+   "rel": 0.0799,
+   "p": 0.001
+  },
+  {
+   "day": "2022-03-19",
+   "scenario": "fog_slowdown",
+   "injected": true,
+   "flagged": true,
+   "delta": 1.9229,
+   "rel": 0.0829,
+   "p": 0.001
+  },
+  {
+   "day": "2022-03-19",
+   "scenario": "urban_slowdown",
+   "injected": true,
+   "flagged": true,
+   "delta": 1.7695,
+   "rel": 0.0763,
+   "p": 0.001
+  },
+  {
+   "day": "2022-03-19",
+   "scenario": "bad_vehicle_slowdown",
+   "injected": true,
+   "flagged": true,
+   "delta": 2.7153,
+   "rel": 0.1171,
+   "p": 0.001
+  },
+  {
+   "day": "2022-03-19",
+   "scenario": "low_rated_couriers",
+   "injected": true,
+   "flagged": true,
+   "delta": 1.1783,
+   "rel": 0.0508,
+   "p": 0.005
+  },
+  {
+   "day": "2022-03-19",
+   "scenario": "festival_surge",
+   "injected": true,
+   "flagged": true,
+   "delta": 2.0134,
+   "rel": 0.0868,
+   "p": 0.001
+  },
+  {
+   "day": "2022-03-19",
+   "scenario": "batched_orders",
+   "injected": true,
+   "flagged": true,
+   "delta": 3.2078,
+   "rel": 0.1383,
+   "p": 0.001
+  },
+  {
+   "day": "2022-03-19",
+   "scenario": "jam_share_up",
+   "injected": true,
+   "flagged": true,
+   "delta": 1.943,
+   "rel": 0.0838,
+   "p": 0.001
+  },
+  {
+   "day": "2022-03-19",
+   "scenario": "none",
+   "injected": false,
+   "flagged": false,
+   "delta": 0.0005,
+   "rel": 0.0,
+   "p": 1.0
+  },
+  {
+   "day": "2022-03-21",
+   "scenario": "jam_slowdown",
+   "injected": true,
+   "flagged": true,
+   "delta": 2.3865,
+   "rel": 0.1029,
+   "p": 0.001
+  },
+  {
+   "day": "2022-03-21",
+   "scenario": "fog_slowdown",
+   "injected": true,
+   "flagged": true,
+   "delta": 2.2337,
+   "rel": 0.0963,
+   "p": 0.001
+  },
+  {
+   "day": "2022-03-21",
+   "scenario": "urban_slowdown",
+   "injected": true,
+   "flagged": true,
+   "delta": 2.1342,
+   "rel": 0.092,
+   "p": 0.001
+  },
+  {
+   "day": "2022-03-21",
+   "scenario": "bad_vehicle_slowdown",
+   "injected": true,
+   "flagged": true,
+   "delta": 3.1089,
+   "rel": 0.1341,
+   "p": 0.001
+  },
+  {
+   "day": "2022-03-21",
+   "scenario": "low_rated_couriers",
+   "injected": true,
+   "flagged": true,
+   "delta": 1.8168,
+   "rel": 0.0783,
+   "p": 0.001
+  },
+  {
+   "day": "2022-03-21",
+   "scenario": "festival_surge",
+   "injected": true,
+   "flagged": true,
+   "delta": 2.4943,
+   "rel": 0.1076,
+   "p": 0.001
+  },
+  {
+   "day": "2022-03-21",
+   "scenario": "batched_orders",
+   "injected": true,
+   "flagged": true,
+   "delta": 3.5914,
+   "rel": 0.1549,
+   "p": 0.001
+  },
+  {
+   "day": "2022-03-21",
+   "scenario": "jam_share_up",
+   "injected": true,
+   "flagged": true,
+   "delta": 2.0776,
+   "rel": 0.0896,
+   "p": 0.001
+  },
+  {
+   "day": "2022-03-21",
+   "scenario": "none",
+   "injected": false,
+   "flagged": false,
+   "delta": 0.4253,
+   "rel": 0.0183,
+   "p": 0.20979
+  },
+  {
+   "day": "2022-03-24",
+   "scenario": "jam_slowdown",
+   "injected": true,
+   "flagged": false,
+   "delta": 1.1484,
+   "rel": 0.0486,
+   "p": 0.004
+  },
+  {
+   "day": "2022-03-24",
+   "scenario": "fog_slowdown",
+   "injected": true,
+   "flagged": false,
+   "delta": 0.8247,
+   "rel": 0.0349,
+   "p": 0.01898
+  },
+  {
+   "day": "2022-03-24",
+   "scenario": "urban_slowdown",
+   "injected": true,
+   "flagged": false,
+   "delta": 0.9072,
+   "rel": 0.0384,
+   "p": 0.00599
+  },
+  {
+   "day": "2022-03-24",
+   "scenario": "bad_vehicle_slowdown",
+   "injected": true,
+   "flagged": true,
+   "delta": 1.9619,
+   "rel": 0.0831,
+   "p": 0.001
+  },
+  {
+   "day": "2022-03-24",
+   "scenario": "low_rated_couriers",
+   "injected": true,
+   "flagged": false,
+   "delta": 0.6238,
+   "rel": 0.0264,
+   "p": 0.09391
+  },
+  {
+   "day": "2022-03-24",
+   "scenario": "festival_surge",
+   "injected": true,
+   "flagged": true,
+   "delta": 1.3663,
+   "rel": 0.0579,
+   "p": 0.001
+  },
+  {
+   "day": "2022-03-24",
+   "scenario": "batched_orders",
+   "injected": true,
+   "flagged": true,
+   "delta": 2.561,
+   "rel": 0.1084,
+   "p": 0.001
+  },
+  {
+   "day": "2022-03-24",
+   "scenario": "jam_share_up",
+   "injected": true,
+   "flagged": true,
+   "delta": 1.2573,
+   "rel": 0.0532,
+   "p": 0.001
+  },
+  {
+   "day": "2022-03-24",
+   "scenario": "none",
+   "injected": false,
+   "flagged": false,
+   "delta": -0.7,
+   "rel": -0.0296,
+   "p": 0.03796
+  },
+  {
+   "day": "2022-03-26",
+   "scenario": "jam_slowdown",
+   "injected": true,
+   "flagged": true,
+   "delta": 2.205,
+   "rel": 0.0962,
+   "p": 0.001
+  },
+  {
+   "day": "2022-03-26",
+   "scenario": "fog_slowdown",
+   "injected": true,
+   "flagged": true,
+   "delta": 1.7303,
+   "rel": 0.0755,
+   "p": 0.001
+  },
+  {
+   "day": "2022-03-26",
+   "scenario": "urban_slowdown",
+   "injected": true,
+   "flagged": true,
+   "delta": 1.9317,
+   "rel": 0.0843,
+   "p": 0.001
+  },
+  {
+   "day": "2022-03-26",
+   "scenario": "bad_vehicle_slowdown",
+   "injected": true,
+   "flagged": true,
+   "delta": 2.6406,
+   "rel": 0.1152,
+   "p": 0.001
+  },
+  {
+   "day": "2022-03-26",
+   "scenario": "low_rated_couriers",
+   "injected": true,
+   "flagged": true,
+   "delta": 1.5022,
+   "rel": 0.0656,
+   "p": 0.001
+  },
+  {
+   "day": "2022-03-26",
+   "scenario": "festival_surge",
+   "injected": true,
+   "flagged": true,
+   "delta": 2.3016,
+   "rel": 0.1004,
+   "p": 0.001
+  },
+  {
+   "day": "2022-03-26",
+   "scenario": "batched_orders",
+   "injected": true,
+   "flagged": true,
+   "delta": 3.4239,
+   "rel": 0.1494,
+   "p": 0.001
+  },
+  {
+   "day": "2022-03-26",
+   "scenario": "jam_share_up",
+   "injected": true,
+   "flagged": true,
+   "delta": 2.1967,
+   "rel": 0.0959,
+   "p": 0.001
+  },
+  {
+   "day": "2022-03-26",
+   "scenario": "none",
+   "injected": false,
+   "flagged": false,
+   "delta": 0.2485,
+   "rel": 0.0108,
+   "p": 0.47453
+  },
+  {
+   "day": "2022-03-28",
+   "scenario": "jam_slowdown",
+   "injected": true,
+   "flagged": true,
+   "delta": 2.4244,
+   "rel": 0.1047,
+   "p": 0.001
+  },
+  {
+   "day": "2022-03-28",
+   "scenario": "fog_slowdown",
+   "injected": true,
+   "flagged": true,
+   "delta": 1.9294,
+   "rel": 0.0833,
+   "p": 0.001
+  },
+  {
+   "day": "2022-03-28",
+   "scenario": "urban_slowdown",
+   "injected": true,
+   "flagged": true,
+   "delta": 1.9493,
+   "rel": 0.0842,
+   "p": 0.001
+  },
+  {
+   "day": "2022-03-28",
+   "scenario": "bad_vehicle_slowdown",
+   "injected": true,
+   "flagged": true,
+   "delta": 2.8885,
+   "rel": 0.1247,
+   "p": 0.001
+  },
+  {
+   "day": "2022-03-28",
+   "scenario": "low_rated_couriers",
+   "injected": true,
+   "flagged": true,
+   "delta": 1.4353,
+   "rel": 0.062,
+   "p": 0.001
+  },
+  {
+   "day": "2022-03-28",
+   "scenario": "festival_surge",
+   "injected": true,
+   "flagged": true,
+   "delta": 2.3023,
+   "rel": 0.0994,
+   "p": 0.001
+  },
+  {
+   "day": "2022-03-28",
+   "scenario": "batched_orders",
+   "injected": true,
+   "flagged": true,
+   "delta": 3.4354,
+   "rel": 0.1483,
+   "p": 0.001
+  },
+  {
+   "day": "2022-03-28",
+   "scenario": "jam_share_up",
+   "injected": true,
+   "flagged": true,
+   "delta": 1.8978,
+   "rel": 0.0819,
+   "p": 0.001
+  },
+  {
+   "day": "2022-03-28",
+   "scenario": "none",
+   "injected": false,
+   "flagged": false,
+   "delta": 0.2581,
+   "rel": 0.0111,
+   "p": 0.44056
+  },
+  {
+   "day": "2022-03-30",
+   "scenario": "jam_slowdown",
+   "injected": true,
+   "flagged": true,
+   "delta": 2.1304,
+   "rel": 0.091,
+   "p": 0.001
+  },
+  {
+   "day": "2022-03-30",
+   "scenario": "fog_slowdown",
+   "injected": true,
+   "flagged": true,
+   "delta": 1.6914,
+   "rel": 0.0722,
+   "p": 0.001
+  },
+  {
+   "day": "2022-03-30",
+   "scenario": "urban_slowdown",
+   "injected": true,
+   "flagged": true,
+   "delta": 1.5236,
+   "rel": 0.065,
+   "p": 0.001
+  },
+  {
+   "day": "2022-03-30",
+   "scenario": "bad_vehicle_slowdown",
+   "injected": true,
+   "flagged": true,
+   "delta": 2.6538,
+   "rel": 0.1133,
+   "p": 0.001
+  },
+  {
+   "day": "2022-03-30",
+   "scenario": "low_rated_couriers",
+   "injected": true,
+   "flagged": true,
+   "delta": 1.2147,
+   "rel": 0.0519,
+   "p": 0.003
+  },
+  {
+   "day": "2022-03-30",
+   "scenario": "festival_surge",
+   "injected": true,
+   "flagged": true,
+   "delta": 2.0598,
+   "rel": 0.0879,
+   "p": 0.001
+  },
+  {
+   "day": "2022-03-30",
+   "scenario": "batched_orders",
+   "injected": true,
+   "flagged": true,
+   "delta": 3.1832,
+   "rel": 0.1359,
+   "p": 0.001
+  },
+  {
+   "day": "2022-03-30",
+   "scenario": "jam_share_up",
+   "injected": true,
+   "flagged": true,
+   "delta": 1.7092,
+   "rel": 0.073,
+   "p": 0.001
+  },
+  {
+   "day": "2022-03-30",
+   "scenario": "none",
+   "injected": false,
+   "flagged": false,
+   "delta": -0.0227,
+   "rel": -0.001,
+   "p": 0.93706
+  },
+  {
+   "day": "2022-04-01",
+   "scenario": "jam_slowdown",
+   "injected": true,
+   "flagged": true,
+   "delta": 1.7888,
+   "rel": 0.0764,
+   "p": 0.001
+  },
+  {
+   "day": "2022-04-01",
+   "scenario": "fog_slowdown",
+   "injected": true,
+   "flagged": true,
+   "delta": 1.8388,
+   "rel": 0.0786,
+   "p": 0.001
+  },
+  {
+   "day": "2022-04-01",
+   "scenario": "urban_slowdown",
+   "injected": true,
+   "flagged": true,
+   "delta": 1.6659,
+   "rel": 0.0712,
+   "p": 0.001
+  },
+  {
+   "day": "2022-04-01",
+   "scenario": "bad_vehicle_slowdown",
+   "injected": true,
+   "flagged": true,
+   "delta": 2.6031,
+   "rel": 0.1112,
+   "p": 0.001
+  },
+  {
+   "day": "2022-04-01",
+   "scenario": "low_rated_couriers",
+   "injected": true,
+   "flagged": true,
+   "delta": 1.2073,
+   "rel": 0.0516,
+   "p": 0.005
+  },
+  {
+   "day": "2022-04-01",
+   "scenario": "festival_surge",
+   "injected": true,
+   "flagged": true,
+   "delta": 2.0032,
+   "rel": 0.0856,
+   "p": 0.001
+  },
+  {
+   "day": "2022-04-01",
+   "scenario": "batched_orders",
+   "injected": true,
+   "flagged": true,
+   "delta": 3.1685,
+   "rel": 0.1354,
+   "p": 0.001
+  },
+  {
+   "day": "2022-04-01",
+   "scenario": "jam_share_up",
+   "injected": true,
+   "flagged": true,
+   "delta": 1.6932,
+   "rel": 0.0724,
+   "p": 0.001
+  },
+  {
+   "day": "2022-04-01",
+   "scenario": "none",
+   "injected": false,
+   "flagged": false,
+   "delta": -0.0538,
+   "rel": -0.0023,
+   "p": 0.85215
+  },
+  {
+   "day": "2022-04-03",
+   "scenario": "jam_slowdown",
+   "injected": true,
+   "flagged": true,
+   "delta": 1.5523,
+   "rel": 0.0665,
+   "p": 0.001
+  },
+  {
+   "day": "2022-04-03",
+   "scenario": "fog_slowdown",
+   "injected": true,
+   "flagged": true,
+   "delta": 1.4275,
+   "rel": 0.0611,
+   "p": 0.001
+  },
+  {
+   "day": "2022-04-03",
+   "scenario": "urban_slowdown",
+   "injected": true,
+   "flagged": true,
+   "delta": 1.4222,
+   "rel": 0.0609,
+   "p": 0.001
+  },
+  {
+   "day": "2022-04-03",
+   "scenario": "bad_vehicle_slowdown",
+   "injected": true,
+   "flagged": true,
+   "delta": 2.3572,
+   "rel": 0.101,
+   "p": 0.001
+  },
+  {
+   "day": "2022-04-03",
+   "scenario": "low_rated_couriers",
+   "injected": true,
+   "flagged": false,
+   "delta": 1.0698,
+   "rel": 0.0458,
+   "p": 0.005
+  },
+  {
+   "day": "2022-04-03",
+   "scenario": "festival_surge",
+   "injected": true,
+   "flagged": true,
+   "delta": 1.7951,
+   "rel": 0.0769,
+   "p": 0.001
+  },
+  {
+   "day": "2022-04-03",
+   "scenario": "batched_orders",
+   "injected": true,
+   "flagged": true,
+   "delta": 2.9167,
+   "rel": 0.1249,
+   "p": 0.001
+  },
+  {
+   "day": "2022-04-03",
+   "scenario": "jam_share_up",
+   "injected": true,
+   "flagged": true,
+   "delta": 1.578,
+   "rel": 0.0676,
+   "p": 0.001
+  },
+  {
+   "day": "2022-04-03",
+   "scenario": "none",
+   "injected": false,
+   "flagged": false,
+   "delta": -0.2509,
+   "rel": -0.0107,
+   "p": 0.45255
+  },
+  {
+   "day": "2022-04-05",
+   "scenario": "jam_slowdown",
+   "injected": true,
+   "flagged": true,
+   "delta": 2.0078,
+   "rel": 0.0869,
+   "p": 0.001
+  },
+  {
+   "day": "2022-04-05",
+   "scenario": "fog_slowdown",
+   "injected": true,
+   "flagged": true,
+   "delta": 1.9889,
+   "rel": 0.0861,
+   "p": 0.001
+  },
+  {
+   "day": "2022-04-05",
+   "scenario": "urban_slowdown",
+   "injected": true,
+   "flagged": true,
+   "delta": 1.797,
+   "rel": 0.0778,
+   "p": 0.001
+  },
+  {
+   "day": "2022-04-05",
+   "scenario": "bad_vehicle_slowdown",
+   "injected": true,
+   "flagged": true,
+   "delta": 2.9042,
+   "rel": 0.1258,
+   "p": 0.001
+  },
+  {
+   "day": "2022-04-05",
+   "scenario": "low_rated_couriers",
+   "injected": true,
+   "flagged": true,
+   "delta": 1.424,
+   "rel": 0.0617,
+   "p": 0.001
+  },
+  {
+   "day": "2022-04-05",
+   "scenario": "festival_surge",
+   "injected": true,
+   "flagged": true,
+   "delta": 2.2182,
+   "rel": 0.096,
+   "p": 0.001
+  },
+  {
+   "day": "2022-04-05",
+   "scenario": "batched_orders",
+   "injected": true,
+   "flagged": true,
+   "delta": 3.3431,
+   "rel": 0.1448,
+   "p": 0.001
+  },
+  {
+   "day": "2022-04-05",
+   "scenario": "jam_share_up",
+   "injected": true,
+   "flagged": true,
+   "delta": 2.024,
+   "rel": 0.0876,
+   "p": 0.001
+  },
+  {
+   "day": "2022-04-05",
+   "scenario": "none",
+   "injected": false,
+   "flagged": false,
+   "delta": 0.151,
+   "rel": 0.0065,
+   "p": 0.65135
+  }
+ ]
+}

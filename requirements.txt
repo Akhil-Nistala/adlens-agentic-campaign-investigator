@@ -1,0 +1,6 @@
+langgraph>=0.2
+openai>=1.40
+pymysql>=1.1
+pandas>=2.0
+numpy>=1.26
+scikit-learn>=1.4
